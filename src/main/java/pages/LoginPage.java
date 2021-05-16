@@ -24,6 +24,7 @@ public class LoginPage {
         webDriver.findElement(imdbLoginField).sendKeys(login);
         webDriver.findElement(imdbPasswordField).sendKeys(password);
         webDriver.findElement(imdbSigninButton).click();
+        Thread.sleep(2000) // login delay
         return webDriver.findElements(authErrorWindow).size() == 0 && webDriver.findElements(warningErrorWindow).size() == 0;
     }
 
