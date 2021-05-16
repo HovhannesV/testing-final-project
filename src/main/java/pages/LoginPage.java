@@ -12,6 +12,7 @@ public class LoginPage {
     private final By imdbSigninButton = By.id("a-autoid-0");
     private final By authErrorWindow = By.id("auth-error-message-box");
     private final By warningErrorWindow = By.id("auth-warning-message-box");
+    private final By homeLogo = By.id("home_img_holder");
 
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -24,7 +25,13 @@ public class LoginPage {
         webDriver.findElement(imdbLoginField).sendKeys(login);
         webDriver.findElement(imdbPasswordField).sendKeys(password);
         webDriver.findElement(imdbSigninButton).click();
-        Thread.sleep(2000); // login delay
+        new WebDriverWait(webDriver, 120)
+                .until(
+                    driver ->
+                    webDriver.findElements(imdbSigninButton).size() > 0
+                        ||
+                    webDriver.findElements(homeLogo).size() > 0
+                );
         return webDriver.findElements(authErrorWindow).size() == 0 && webDriver.findElements(warningErrorWindow).size() == 0;
     }
 
