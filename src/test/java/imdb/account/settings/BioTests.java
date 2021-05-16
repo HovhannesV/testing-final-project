@@ -16,7 +16,7 @@ public class BioTests extends BaseTest {
     public void changeBioTests() throws Exception {
         HomePage homePage = new HomePage(this.webDriver);
         LoginPage loginPage = homePage.navigateLoginPage();
-        Assert.assertTrue(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", "hov88test"));
+        Assert.assertTrue(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", "hov88test", true));
         AccountSettingsPage accountSettingsPage = new ProfileNavigator(webDriver).navigateToAccountSettingsPage();
         String newBio = UUID.randomUUID().toString();
         accountSettingsPage.editBio(newBio);

@@ -23,7 +23,7 @@ public class WatchlistTests extends BaseTest {
     public void addToWatchListTest() throws Exception {
         HomePage homePage = new HomePage(this.webDriver);
         LoginPage loginPage = homePage.navigateLoginPage();
-        Assert.assertTrue(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", "hov88test"));
+        Assert.assertTrue(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", "hov88test", true));
 
         GenreBrowser genreBrowser = homePage.getMenu().navigateToGenreBrowser();
         String movieUrl = genreBrowser.browseByFirstGenre().returnResultMovieUrls().get(0);
@@ -57,7 +57,7 @@ public class WatchlistTests extends BaseTest {
     public void removeFromWatchListTest() throws Exception {
         HomePage homePage = new HomePage(this.webDriver);
         LoginPage loginPage = homePage.navigateLoginPage();
-        Assert.assertTrue(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", "hov88test"));
+        Assert.assertTrue(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", "hov88test", true));
 
         GenreBrowser genreBrowser = homePage.getMenu().navigateToGenreBrowser();
         String movieUrl = genreBrowser.browseByFirstGenre().returnResultMovieUrls().get(0);

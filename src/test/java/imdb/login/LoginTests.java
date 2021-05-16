@@ -15,7 +15,7 @@ public class LoginTests extends BaseTest {
         HomePage page = new HomePage(this.webDriver);
         LoginPage loginPage = page.navigateLoginPage();
 
-        Assert.assertTrue(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", "hov88test"));
+        Assert.assertTrue(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", "hov88test", true));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class LoginTests extends BaseTest {
         HomePage page = new HomePage(this.webDriver);
         LoginPage loginPage = page.navigateLoginPage();
 
-        Assert.assertFalse(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", UUID.randomUUID().toString()));
+        Assert.assertFalse(loginPage.loginWithImdbAccount("hovo.test19@gmail.com", UUID.randomUUID().toString(), false));
     }
 
 }
